@@ -4,20 +4,11 @@ import { StyleSheet, Text, View } from 'react-native';
 // utils
 import _ from 'lodash';
 
-// data visualization
-import { VictoryPie } from 'victory-native';
-
 // contexts
 import { useAppContext } from '../App.provider';
 
-// themes
-import { theme } from '../theme';
-
-const victoryPieStyle = {
-  labels: {
-    fontSize: 30,
-  },
-};
+// components
+import AnalyticsDV from '../components/AnalyticsChart';
 
 const Analytics: React.FC = () => {
   const { moodList } = useAppContext();
@@ -36,20 +27,7 @@ const Analytics: React.FC = () => {
       {!_.isEmpty(moodList) && (
         <Text style={styles.textPie}>Emoji History</Text>
       )}
-      <VictoryPie
-        data={data}
-        labelRadius={90}
-        radius={150}
-        innerRadius={50}
-        colorScale={[
-          theme.colorPurple,
-          theme.colorLavender,
-          theme.colorBlue,
-          theme.colorGrey,
-          theme.colorWhite,
-        ]}
-        style={victoryPieStyle}
-      />
+      <AnalyticsDV data={data} />
     </View>
   );
 };
