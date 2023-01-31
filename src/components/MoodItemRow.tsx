@@ -7,6 +7,9 @@ import { MoodOptionsWithTimestamp } from '../@types/mood';
 // components
 import RenderMoodItem from '../components/RenderMoodItem';
 
+// constants
+import * as accessLabel from '../constants/accessibilities';
+
 type Props = {
   moodList: MoodOptionsWithTimestamp[];
 };
@@ -19,6 +22,7 @@ const MoodItemRow: React.FC<Props> = ({ moodList }) => {
 
   return (
     <FlatList
+      accessibilityLabel={accessLabel.moodPicker}
       data={moodList}
       keyExtractor={onKeyExtractor}
       renderItem={({ item }) => <RenderMoodItem item={item} />}

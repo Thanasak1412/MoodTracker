@@ -9,6 +9,7 @@ import Reanimated, {
 
 // constants
 import { moodOptions } from '../constants/moodOptions';
+import * as accessLabel from '../constants/accessibilities';
 
 // types
 import { MoodOptions } from '../@types/mood';
@@ -61,7 +62,7 @@ const MoodPicker: React.FC<MoodPickerProps> = ({ onSelect }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} accessibilityLabel={accessLabel.moodPicker}>
       {!hasSelected ? (
         <>
           <Text style={styles.textHeader}>How are you right now ?</Text>
